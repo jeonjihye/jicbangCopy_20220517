@@ -1,7 +1,9 @@
 package com.asianaidt.jicbangcopy_20220517
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.asianaidt.ViewRoomDetailActivity
 import com.asianaidt.jicbangcopy_20220517.adapters.RoomAdapter
 import com.asianaidt.jicbangcopy_20220517.datas.RoomData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,5 +30,15 @@ class MainActivity : AppCompatActivity() {
         mRoomAdaper = RoomAdapter(this,R.layout.room_list_item,mRoomList)
         roomListView.adapter = mRoomAdaper
 
+        roomListView.setOnItemClickListener { adapterView, view, position, l ->
+
+            val clickedRoom = mRoomList[position]
+            val myIntent = Intent(this,ViewRoomDetailActivity::class.java)
+            // RoomData Serializable 형태로 변환하여 putExtra
+            myIntent.putExtra("room",clickedRoom)
+
+            startActivity(myIntent)
+
+        }
     }
 }
