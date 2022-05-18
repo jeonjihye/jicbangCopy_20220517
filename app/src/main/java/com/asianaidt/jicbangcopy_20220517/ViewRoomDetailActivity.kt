@@ -1,4 +1,4 @@
-package com.asianaidt
+package com.asianaidt.jicbangcopy_20220517
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
